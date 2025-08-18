@@ -1,9 +1,9 @@
 name: Process Translation Files
 on:
   push:
-    branches: [main, develop]
+    branches: [main]
     paths:
-      - 'locales/*-en.json'
+      - 'locales/*en.json'
       - 'root.en.json'
   workflow_dispatch: # Manual trigger
 
