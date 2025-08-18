@@ -33,6 +33,10 @@ jobs:
             --api-token="$PTC_API_TOKEN" \
             --verbose
       
+      - name: Clean up temporary files
+        run: |
+          rm -f ptc-cli.sh
+      
       - name: Create Pull Request with translations
         if: success()
         uses: peter-evans/create-pull-request@v5
