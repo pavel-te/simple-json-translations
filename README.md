@@ -2,6 +2,8 @@
 
 This project demonstrates automated translation processing using GitHub Actions and the PTC CLI tool.
 
+**Check `.github/workflows/translations.yml` for the workflow configuration.**
+
 ## Project Structure
 
 ```
