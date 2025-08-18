@@ -5,7 +5,7 @@ This project demonstrates automated translation processing using GitHub Actions 
 ## Project Structure
 
 ```
-gh-react-app-2/
+simple-json-translations/
 ├── .github/workflows/
 │   └── translations.yml          # GitHub Actions workflow for automated translations
 ├── locales/
