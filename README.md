@@ -118,12 +118,18 @@ To test the translation workflow locally:
    export PTC_API_TOKEN=your-secret-token
    ```
 
-2. Download and run PTC CLI:
+2. Download and run PTC CLI. Pin a release tag — never fetch from `refs/heads/main`,
+   which is a moving branch. The token stays in the environment, so it never lands
+   in your shell history or another user's `ps` output:
    ```bash
-   curl -fsSL https://raw.githubusercontent.com/OnTheGoSystems/ptc-cli/refs/heads/main/ptc-cli.sh -o ptc-cli.sh
+   curl -fsSL https://raw.githubusercontent.com/OnTheGoSystems/ptc-cli/v1.0.3/ptc-cli.sh -o ptc-cli.sh
+   shasum -a 256 ptc-cli.sh   # 87efed00bd9345b9a4d5fb1972d8d53525246f6a2a4e6a48ae7d20d67e41362a
    chmod +x ptc-cli.sh
-   ./ptc-cli.sh --source-locale en --patterns "locales/*{{lang}}.json,root.{{lang}}.json" --api-token="$PTC_API_TOKEN" --verbose
+   ./ptc-cli.sh --source-locale en --patterns "locales/*{{lang}}.json,root.{{lang}}.json" --verbose
    ```
+
+   In CI this repo uses [`OnTheGoSystems/ptc-action`](https://github.com/OnTheGoSystems/ptc-action)
+   instead, which vendors the CLI inside itself — nothing is downloaded at job time.
 
 ## Notes
 
